@@ -5,20 +5,21 @@ import { Shop } from './pages/shop/shop'
 import { Cart } from './pages/cart/cart'
 
 import "./style.css"
+import { ShopContextProvider } from './context/shop-context'
 
 
 export default function App() {
   return (
     <div className="App">
-
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Shop />} />
-          <Route path="/cart" element={<Cart />} />
-        </Routes>
-      </Router>
-
+      <ShopContextProvider>
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Shop />} />
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
+        </Router>
+      </ShopContextProvider>
     </div>
   )
 }
